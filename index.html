@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DROPYARD | Mochilas SPRAYGROUND® en República Dominicana</title>
+  <meta name="description" content="DROPYARD — distribuidor autorizado de SPRAYGROUND® en República Dominicana. Drops oficiales, ediciones limitadas. Envío gratis a partir de RD$6,000.">
+  <link rel="icon" href="favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- HERO -->
+<main>
+  <section class="hero">
+    <div class="hero-bg-text">SPRAYGROUND</div>
+    <img class="hero-bag" src="images/hero-bag.png" alt="Sprayground Mochila Hero">
+    <div class="hero-bottom">
+      <div class="hero-bottom-left">
+        <p>EST. 2010</p>
+        <h3>NEW YORK CITY</h3>
+      </div>
+      <div class="hero-cta-wrap">
+        <a class="btn-primary" href="novedades.html">VER DROP 014 →</a>
+      </div>
+      <div class="hero-bottom-right">
+        <div class="drop-num">014</div>
+        <p>SERIE LIMITADA</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED PRODUCTS -->
+  <section class="products-section">
+    <div class="container">
+      <p class="section-label">DROP 014 · ABR 2026</p>
+      <h2 class="section-title">ÚLTIMAS LLEGADAS</h2>
+      <div class="product-grid" id="featured-grid"></div>
+      <div style="text-align:center;margin-top:3rem;">
+        <a href="novedades.html" class="btn-secondary">VER TODO EL CATÁLOGO</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIFESTYLE STRIP -->
+  <div class="lifestyle-strip">
+    <img src="images/lifestyle-1.png" alt="Dropyard Lifestyle">
+    <div class="lifestyle-strip-content">
+      <h2>DE NYC A<br>TU MOCHILA.</h2>
+      <p>DROPYARD nació en 2018 en Santo Domingo con una misión simple: traer a la República Dominicana las mochilas SPRAYGROUND® que antes había que comprar en Nueva York o Miami. Hoy somos el referente del street en RD.</p>
+      <a href="historia.html" class="btn-secondary">SOBRE DROPYARD</a>
+    </div>
+  </div>
+
+  <!-- CATEGORIES -->
+  <section style="background:#000;padding:5rem 2rem;">
+    <div class="container">
+      <p class="section-label" style="color:#e11d48;">EXPLORAR</p>
+      <h2 class="section-title" style="color:#fff;margin-bottom:2rem;">CATEGORÍAS</h2>
+    </div>
+    <div class="categories-grid">
+      <a href="mochilas.html" class="category-card">
+        <img src="images/icon-1.png" alt="Mochilas">
+        <span class="category-card-name">MOCHILAS</span>
+        <span class="category-card-count">10 MODELOS</span>
+      </a>
+      <a href="colabos.html" class="category-card">
+        <img src="images/drop-2.png" alt="Colabos">
+        <span class="category-card-name">COLABOS</span>
+        <span class="category-card-count">4 EDICIONES</span>
+      </a>
+      <a href="mochilas.html" class="category-card">
+        <img src="images/cat-fanny.png" alt="Riñoneras">
+        <span class="category-card-name">RIÑONERAS</span>
+        <span class="category-card-count">1 MODELO</span>
+      </a>
+      <a href="novedades.html" class="category-card">
+        <img src="images/drop-3.png" alt="Novedades">
+        <span class="category-card-name">NOVEDADES</span>
+        <span class="category-card-count">DROP 014</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- COLABS PREVIEW -->
+  <section class="products-section dark" style="background:#000;">
+    <div class="container">
+      <p class="section-label">COLABORACIONES</p>
+      <h2 class="section-title" style="color:#fff;">DROPS ESPECIALES</h2>
+      <div class="product-grid" id="colabs-grid"></div>
+      <div style="text-align:center;margin-top:3rem;">
+        <a href="colabos.html" class="btn-outline-red">VER TODAS LAS COLABOS</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter-section">
+    <p class="section-label">DROPS EXCLUSIVOS</p>
+    <h2 class="section-title" style="margin-bottom:.5rem;">ACCESO ANTICIPADO</h2>
+    <p style="color:rgba(255,255,255,.6);margin-bottom:.25rem;">Sé el primero en enterarte de cada drop. Sin spam.</p>
+    <form class="newsletter-form" id="newsletter-form">
+      <input class="newsletter-input" type="email" placeholder="TU EMAIL" required>
+      <button class="newsletter-btn" type="submit">SUSCRIBIRME</button>
+    </form>
+  </section>
+</main>
+
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/components.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  // Featured: first 3 new
+  const featured = PRODUCTS.filter(p => p.isNew).slice(0,3);
+  document.getElementById("featured-grid").innerHTML = featured.map(p => renderProductCard(p)).join("");
+  // Colabs
+  const colabs = PRODUCTS.filter(p => p.category === "COLABO").slice(0,3);
+  document.getElementById("colabs-grid").innerHTML = colabs.map(p => renderProductCard(p, true)).join("");
+});
+</script>
+</body>
+</html>
