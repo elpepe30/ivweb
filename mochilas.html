@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MOCHILAS | DROPYARD</title>
+  <link rel="icon" href="favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<main style="padding-top:28px;">
+  <div class="page-header">
+    <div class="page-header-bg">MOCHILAS</div>
+    <div class="page-header-inner">
+      <span class="page-eyebrow">CATÁLOGO</span>
+      <h1 class="page-title">MOCHILAS</h1>
+      <p class="page-subtitle">Todo el catálogo SPRAYGROUND® disponible en DROPYARD. Importadas oficialmente y enviadas desde Santo Domingo a toda la República Dominicana.</p>
+    </div>
+  </div>
+  <div class="red-bar"></div>
+
+  <div class="filter-bar">
+    <button class="filter-btn active" data-cat="">TODOS</button>
+    <button class="filter-btn" data-cat="MOCHILA">MOCHILAS</button>
+    <button class="filter-btn" data-cat="RIÑONERA">RIÑONERAS</button>
+    <button class="filter-btn" data-cat="COLABO">COLABOS</button>
+  </div>
+
+  <section class="products-section">
+    <div class="container">
+      <div class="product-grid" id="products-grid"></div>
+    </div>
+  </section>
+</main>
+
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/components.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const grid = document.getElementById("products-grid");
+  grid.innerHTML = PRODUCTS.map(p => `<div data-cat="${p.category}">${renderProductCard(p).replace('<div class="product-card"','<div class="product-card"')}</div>`).join("");
+});
+</script>
+</body>
+</html>
