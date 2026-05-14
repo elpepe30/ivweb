@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NOVEDADES | DROPYARD</title>
+  <link rel="icon" href="favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<main style="padding-top:28px;">
+  <div class="page-header">
+    <div class="page-header-bg">NUEVO</div>
+    <div class="page-header-inner">
+      <span class="page-eyebrow">DROP 014 · ABR 2026</span>
+      <h1 class="page-title">NOVEDADES</h1>
+      <p class="page-subtitle">Las últimas piezas SPRAYGROUND® aterrizadas en DROPYARD. Recién importadas desde NYC, listas para enviar desde Santo Domingo.</p>
+    </div>
+  </div>
+  <div class="red-bar"></div>
+
+  <!-- Hero drop -->
+  <div class="novedades-hero" style="display:grid;grid-template-columns:1fr 1fr;background:#000;min-height:420px;">
+    <div style="position:relative;overflow:hidden;min-height:280px;">
+      <img src="images/drop-1.png" alt="Tokyo Drift" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:2rem;opacity:.85;">
+    </div>
+    <div style="display:flex;flex-direction:column;justify-content:center;padding:3rem 2rem;color:#fff;">
+      <span style="display:inline-block;background:#e11d48;color:#fff;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:4px 10px;margin-bottom:1rem;width:fit-content;">NUEVO DROP</span>
+      <h2 style="font-family:'Anton',sans-serif;font-size:clamp(2.5rem,6vw,4.5rem);letter-spacing:-.03em;text-transform:uppercase;line-height:.9;margin-bottom:.75rem;">TOKYO DRIFT</h2>
+      <p style="color:rgba(255,255,255,.6);font-size:1rem;margin-bottom:.5rem;">DROP 014 · COLECCIÓN LIMITADA</p>
+      <p style="font-family:'Anton',sans-serif;font-size:2rem;color:#e11d48;margin-bottom:1.5rem;">RD$5,500</p>
+      <button class="btn-primary" onclick="addToCart('tokyo-drift');toast('AÑADIDO','Tokyo Drift en tu carrito','success')">AÑADIR AL CARRITO</button>
+    </div>
+  </div>
+
+  <section class="products-section">
+    <div class="container">
+      <p class="section-label">RECIÉN LLEGADAS</p>
+      <h2 class="section-title">NUEVOS DROPS</h2>
+      <div class="product-grid" id="new-grid"></div>
+    </div>
+  </section>
+</main>
+
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/components.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const newItems = PRODUCTS.filter(p => p.isNew);
+  document.getElementById("new-grid").innerHTML = newItems.map(p => renderProductCard(p)).join("");
+});
+</script>
+</body>
+</html>
