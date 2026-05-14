@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COLABOS | DROPYARD</title>
+  <link rel="icon" href="favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<main style="padding-top:28px;background:#000;">
+  <div class="page-header">
+    <div class="page-header-bg">COLABOS</div>
+    <div class="page-header-inner">
+      <span class="page-eyebrow">COLABORACIONES</span>
+      <h1 class="page-title">COLABOS</h1>
+      <p class="page-subtitle">Las colaboraciones más ambiciosas de SPRAYGROUND®. Arte, cultura y streetwear en cada pieza.</p>
+    </div>
+  </div>
+  <div class="red-bar"></div>
+
+  <!-- Collab hero grid -->
+  <div class="collab-hero-grid" style="margin:2px 0;">
+    <div class="collab-hero-cell">
+      <img src="images/drop-2.png" alt="Anime Legends">
+      <div class="collab-hero-info">
+        <h3>ANIME LEGENDS</h3>
+        <p>COLABORACIÓN ESPECIAL · DROP 014</p>
+      </div>
+    </div>
+    <div class="collab-hero-cell">
+      <img src="images/icon-1.png" alt="Comic Legends">
+      <div class="collab-hero-info">
+        <h3>COMIC LEGENDS</h3>
+        <p>COLECCIÓN LIMITADA · DROP 012</p>
+      </div>
+    </div>
+  </div>
+
+  <section class="products-section dark" style="background:#000;">
+    <div class="container">
+      <p class="section-label">TODAS LAS COLABORACIONES</p>
+      <h2 class="section-title" style="color:#fff;">DROPS ESPECIALES</h2>
+      <div class="product-grid" id="colabs-grid"></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div style="background:#000;padding:5rem 2rem;text-align:center;border-top:1px solid rgba(255,255,255,.08);">
+    <p style="font-family:'Anton',sans-serif;font-size:1rem;letter-spacing:.2em;color:rgba(255,255,255,.5);margin-bottom:1rem;text-transform:uppercase;">¿Buscas una colabo que no está en stock?</p>
+    <a href="https://wa.me/18493424169" target="_blank" style="font-family:'Anton',sans-serif;font-size:clamp(1.8rem,5vw,4rem);letter-spacing:-.02em;color:#fff;text-decoration:none;text-transform:uppercase;transition:color .2s;" onmouseover="this.style.color='#e11d48'" onmouseout="this.style.color='#fff'">WHATSAPP +1 849 342 4169</a>
+    <p style="font-family:'Anton',sans-serif;font-size:.75rem;letter-spacing:.2em;color:rgba(255,255,255,.3);margin-top:1rem;text-transform:uppercase;">TE LA RESERVAMOS EN EL PRÓXIMO PEDIDO A SPRAYGROUND®</p>
+  </div>
+</main>
+
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/components.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const colabs = PRODUCTS.filter(p => p.category === "COLABO");
+  document.getElementById("colabs-grid").innerHTML = colabs.map(p => renderProductCard(p, true)).join("");
+});
+</script>
+</body>
+</html>
